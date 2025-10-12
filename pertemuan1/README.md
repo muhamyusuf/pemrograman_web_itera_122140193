@@ -1,6 +1,8 @@
 # Aplikasi Manajemen Tugas Mahasiswa
 
-Aplikasi web buat bantu mahasiswa ngatur tugas-tugas kuliah dengan sistem kanban board yang gampang dipake.
+Aplikasi web buat bantu mahasiswa ngatur tugas-tugas kuliah dengan sistem kanban board yang gampang dipake. 
+
+[Link Github Pages](https://muhamyusuf.github.io/pemrograman_web_itera_122140193/pertemuan1/index.html)
 
 ## Deskripsi
 
