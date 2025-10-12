@@ -1,9 +1,227 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cek dulu</title>
+    <title>Aplikasi Manajemen Tugas Mahasiswa - Muhammad Yusuf</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="app-container">
+      <header class="header">
+        <div class="header-content">
+          <h1 class="header-title">Manajemen Tugas</h1>
+          <div class="header-actions">
+            <button class="btn btn-primary" id="addProjectBtn">
+              <span class="icon">+</span>
+              Tambah Project
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div class="main-content">
+        <aside class="sidebar">
+          <div class="sidebar-header">
+            <h2 class="sidebar-title">Projects</h2>
+          </div>
+          <div class="project-list" id="projectList"></div>
+        </aside>
+
+        <main class="content">
+          <div class="content-header">
+            <div class="content-info">
+              <h2 class="content-title" id="projectTitle">Pilih Project</h2>
+              <p class="content-subtitle" id="taskCount">
+                0 tugas belum selesai
+              </p>
+            </div>
+            <div class="content-actions">
+              <div class="search-box">
+                <input
+                  type="text"
+                  id="searchInput"
+                  class="input-search"
+                  placeholder="Cari tugas..."
+                />
+              </div>
+              <select id="filterStatus" class="select">
+                <option value="all">Semua Status</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="kanban-board" id="kanbanBoard">
+            <div class="empty-state">
+              <p>Pilih atau buat project untuk memulai</p>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <div class="modal" id="projectModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="projectModalTitle">Tambah Project</h3>
+          <button class="btn-close" id="closeProjectModal">&times;</button>
+        </div>
+        <form id="projectForm">
+          <div class="form-group">
+            <label class="label">Nama Project</label>
+            <input
+              type="text"
+              id="projectName"
+              class="input"
+              placeholder="Masukkan nama project"
+              required
+            />
+            <span class="error-message" id="projectNameError"></span>
+          </div>
+          <div class="form-group">
+            <label class="label">Deskripsi (Opsional)</label>
+            <textarea
+              id="projectDesc"
+              class="textarea"
+              placeholder="Masukkan deskripsi project"
+              rows="3"
+            ></textarea>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="cancelProjectBtn"
+            >
+              Batal
+            </button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="columnModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="columnModalTitle">Tambah Kolom</h3>
+          <button class="btn-close" id="closeColumnModal">&times;</button>
+        </div>
+        <form id="columnForm">
+          <div class="form-group">
+            <label class="label">Nama Kolom</label>
+            <input
+              type="text"
+              id="columnName"
+              class="input"
+              placeholder="Masukkan nama kolom"
+              required
+            />
+            <span class="error-message" id="columnNameError"></span>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="cancelColumnBtn"
+            >
+              Batal
+            </button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="taskModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="taskModalTitle">Tambah Tugas</h3>
+          <button class="btn-close" id="closeTaskModal">&times;</button>
+        </div>
+        <form id="taskForm">
+          <div class="form-group">
+            <label class="label">Nama Tugas</label>
+            <input
+              type="text"
+              id="taskName"
+              class="input"
+              placeholder="Masukkan nama tugas"
+              required
+            />
+            <span class="error-message" id="taskNameError"></span>
+          </div>
+          <div class="form-group">
+            <label class="label">Mata Kuliah</label>
+            <input
+              type="text"
+              id="taskCourse"
+              class="input"
+              placeholder="Masukkan mata kuliah"
+              required
+            />
+            <span class="error-message" id="taskCourseError"></span>
+          </div>
+          <div class="form-group">
+            <label class="label">Deadline</label>
+            <input
+              type="datetime-local"
+              id="taskDeadline"
+              class="input"
+              required
+            />
+            <span class="error-message" id="taskDeadlineError"></span>
+          </div>
+          <div class="form-group">
+            <label class="label">Deskripsi (Opsional)</label>
+            <textarea
+              id="taskDescription"
+              class="textarea"
+              placeholder="Masukkan deskripsi tugas"
+              rows="3"
+            ></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="cancelTaskBtn">
+              Batal
+            </button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="deleteModal">
+      <div class="modal-content modal-small">
+        <div class="modal-header">
+          <h3 class="modal-title">Konfirmasi Hapus</h3>
+          <button class="btn-close" id="closeDeleteModal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p id="deleteMessage">Apakah Anda yakin ingin menghapus item ini?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancelDeleteBtn">
+            Batal
+          </button>
+          <button
+            type="button"
+            class="btn btn-destructive"
+            id="confirmDeleteBtn"
+          >
+            Hapus
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>
+        &copy; 2025 Muhammad Yusuf 122140193,
+        <a href="https://wupxy-v2.vercel.app/" target="_blank">Wupxy.</a>
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
