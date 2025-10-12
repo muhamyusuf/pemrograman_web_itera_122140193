@@ -89,7 +89,7 @@ Buat kamu yang sering kelupaan tugas atau bingung mau ngerjain tugas mana dulu, 
 - Muncul popup konfirmasi sebelum hapus apapun
 - Jadi gak bakal kehapus gak sengaja
 
-**10. Responsive**
+**10. Responsive**  
 ![responsive](./assets/responsive.png)
 
 - Tampilan oke di laptop, tablet, sama HP
