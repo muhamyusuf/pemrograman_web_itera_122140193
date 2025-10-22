@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Greenhouse Companion | Analytics</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" data-module="sidebar">
+        <div class="sidebar__logo" aria-label="Dashboard navigation">
+          <span class="sidebar__badge">GC</span>
+        </div>
+        <nav class="sidebar__nav" aria-label="Primary">
+          <a class="sidebar__button" data-route="index.html" href="index.html">
+            <span aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M12 3 3 10.5V21a1 1 0 0 0 1 1h6v-6h4v6h6a1 1 0 0 0 1-1V10.5L12 3Z"
+                />
+              </svg>
+            </span>
+            <span class="sr-only">Beranda</span>
+          </a>
+          <a
+            class="sidebar__button"
+            data-route="analytics.html"
+            href="analytics.html"
+          >
+            <span aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M5 13h3v8H5zm5-6h3v14h-3zm5 4h3v10h-3z" />
+              </svg>
+            </span>
+            <span class="sr-only">Analitik</span>
+          </a>
+          <a class="sidebar__button" data-route="tasks.html" href="tasks.html">
+            <span aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M7 5h10v2H7zM7 9h10v2H7zM7 13h6v2H7z" />
+                <path
+                  d="m16.59 11.17-1.6 1.6-1.23-1.24-1.41 1.42L15 16l3-3-1.41-1.83Z"
+                />
+              </svg>
+            </span>
+            <span class="sr-only">Tugas</span>
+          </a>
+          <a
+            class="sidebar__button"
+            data-route="settings.html"
+            href="settings.html"
+          >
+            <span aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M19.14 12.94a1.29 1.29 0 0 0 0-1.88l-1.27-.98.08-1.57a1.3 1.3 0 0 0-1.09-1.32l-1.58-.27-.73-1.4a1.3 1.3 0 0 0-1.67-.6l-1.47.6-1.47-.6a1.3 1.3 0 0 0-1.67.6l-.73 1.4-1.58.27a1.3 1.3 0 0 0-1.09 1.32l.08 1.57-1.27.98a1.29 1.29 0 0 0 0 1.88l1.27.98-.08 1.57a1.3 1.3 0 0 0 1.09 1.32l1.58.27.73 1.4a1.3 1.3 0 0 0 1.67.6l1.47-.6 1.47.6a1.3 1.3 0 0 0 1.67-.6l.73-1.4 1.58-.27a1.3 1.3 0 0 0 1.09-1.32l-.08-1.57Zm-7.14 2.56a3 3 0 1 1 3-3 3 3 0 0 1-3 3Z"
+                />
+              </svg>
+            </span>
+            <span class="sr-only">Pengaturan</span>
+          </a>
+        </nav>
+        <footer class="sidebar__footer">
+          <a
+            class="sidebar__button"
+            data-route="profile.html"
+            href="profile.html"
+          >
+            <span aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-3.99 0-7 2.02-7 4.5V20h14v-1.5c0-2.48-3.01-4.5-7-4.5Z"
+                />
+              </svg>
+            </span>
+            <span class="sr-only">Profil</span>
+          </a>
+        </footer>
+      </aside>
+
+      <main class="main-area">
+        <header class="top-bar">
+          <div class="top-bar__info">
+            <h1>Panel Analitik</h1>
+            <p>
+              Statistik ringkas buat lihat kinerja sensor dan hasil panen dalam
+              sekali pandang.
+            </p>
+          </div>
+          <div class="top-bar__meta">
+            <div class="meta-chip">
+              <span class="meta-chip__label">Periode</span>
+              <span class="meta-chip__value">7 Hari Terakhir</span>
+            </div>
+            <div class="meta-chip">
+              <span class="meta-chip__label">Kebun</span>
+              <span class="meta-chip__value">Spinach Garden 08</span>
+            </div>
+          </div>
+        </header>
+
+        <section class="grid grid--summary">
+          <article class="card card--status analytics-summary">
+            <header class="card__header">
+              <div>
+                <h2>Ringkasan Kesehatan</h2>
+                <p class="muted">Sinkron dari data sensor terakhir.</p>
+              </div>
+              <span class="chip" data-analytics-alert-count>0 Alert</span>
+            </header>
+            <div class="status-card__content">
+              <div class="status-card__value" data-analytics-health>0%</div>
+              <div class="status-card__tag" data-analytics-uptime>
+                Uptime 0%
+              </div>
+            </div>
+            <p class="muted" data-analytics-health-message>
+              Insight kesehatan diambil dari kombinasi sinyal kelembapan,
+              temperatur, dan pH.
+            </p>
+            <form class="analytics-alert-form" data-alert-form>
+              <div class="analytics-alert-form__grid">
+                <label>
+                  Judul Alert
+                  <input
+                    type="text"
+                    name="title"
+                    required
+                    placeholder="Contoh: Nutrisi rendah"
+                  />
+                </label>
+                <label>
+                  Pesan
+                  <input
+                    type="text"
+                    name="message"
+                    required
+                    placeholder="Deskripsi singkat kondisi sensor"
+                  />
+                </label>
+                <label>
+                  Level
+                  <select name="level">
+                    <option value="info">Info</option>
+                    <option value="warning">Warning</option>
+                  </select>
+                </label>
+              </div>
+              <button class="primary-button" type="submit">Tambah Alert</button>
+            </form>
+            <ul
+              class="notes-list analytics-alert-list"
+              data-analytics-alerts
+            ></ul>
+          </article>
+
+          <article class="card analytics-chart">
+            <header class="card__header">
+              <div>
+                <h2>Tren Produktivitas</h2>
+                <p class="muted">Estimasi panen mingguan dalam kilogram.</p>
+              </div>
+            </header>
+            <canvas id="productivity-chart" height="260"></canvas>
+            <form class="analytics-trend-form" data-trend-form>
+              <div class="analytics-trend-form__grid">
+                <label>
+                  Label Minggu
+                  <input
+                    type="text"
+                    name="label"
+                    required
+                    placeholder="Contoh: Sen"
+                  />
+                </label>
+                <label>
+                  Nilai (kg)
+                  <input
+                    type="number"
+                    name="value"
+                    min="0"
+                    required
+                    placeholder="Contoh: 48"
+                  />
+                </label>
+              </div>
+              <button class="primary-button" type="submit">Tambah Data</button>
+            </form>
+            <ul class="trend-list" data-trend-list></ul>
+          </article>
+
+          <article class="card">
+            <header class="card__header">
+              <div>
+                <h2>Distribusi Tugas</h2>
+                <p class="muted">Pembagian kerja berdasarkan sesi harian.</p>
+              </div>
+              <span class="chip" data-analytics-task-progress>0% selesai</span>
+            </header>
+            <p class="muted" data-analytics-task-count>
+              0 dari 0 tugas selesai.
+            </p>
+            <ul class="notes-list" data-analytics-task-sessions></ul>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./nav.js"></script>
+    <script type="module" src="./analytics.js"></script>
+  </body>
+</html>

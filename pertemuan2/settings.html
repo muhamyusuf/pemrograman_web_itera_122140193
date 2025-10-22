@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Greenhouse Companion | Settings</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" data-module="sidebar">
+        <div class="sidebar__logo" aria-label="Dashboard navigation">
+          <span class="sidebar__badge">GC</span>
+        </div>
+        <nav class="sidebar__nav" aria-label="Primary">
+          <a class="sidebar__button" data-route="index.html" href="index.html">
+            <span aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 3 3 10.5V21a1 1 0 0 0 1 1h6v-6h4v6h6a1 1 0 0 0 1-1V10.5L12 3Z" />
+              </svg>
+            </span>
+            <span class="sr-only">Beranda</span>
+          </a>
+          <a class="sidebar__button" data-route="analytics.html" href="analytics.html">
+            <span aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M5 13h3v8H5zm5-6h3v14h-3zm5 4h3v10h-3z" />
+              </svg>
+            </span>
+            <span class="sr-only">Analitik</span>
+          </a>
+          <a class="sidebar__button" data-route="tasks.html" href="tasks.html">
+            <span aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M7 5h10v2H7zM7 9h10v2H7zM7 13h6v2H7z" />
+                <path d="m16.59 11.17-1.6 1.6-1.23-1.24-1.41 1.42L15 16l3-3-1.41-1.83Z" />
+              </svg>
+            </span>
+            <span class="sr-only">Tugas</span>
+          </a>
+          <a class="sidebar__button" data-route="settings.html" href="settings.html">
+            <span aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M19.14 12.94a1.29 1.29 0 0 0 0-1.88l-1.27-.98.08-1.57a1.3 1.3 0 0 0-1.09-1.32l-1.58-.27-.73-1.4a1.3 1.3 0 0 0-1.67-.6l-1.47.6-1.47-.6a1.3 1.3 0 0 0-1.67.6l-.73 1.4-1.58.27a1.3 1.3 0 0 0-1.09 1.32l.08 1.57-1.27.98a1.29 1.29 0 0 0 0 1.88l1.27.98-.08 1.57a1.3 1.3 0 0 0 1.09 1.32l1.58.27.73 1.4a1.3 1.3 0 0 0 1.67.6l1.47-.6 1.47.6a1.3 1.3 0 0 0 1.67-.6l.73-1.4 1.58-.27a1.3 1.3 0 0 0 1.09-1.32l-.08-1.57Zm-7.14 2.56a3 3 0 1 1 3-3 3 3 0 0 1-3 3Z"
+                />
+              </svg>
+            </span>
+            <span class="sr-only">Pengaturan</span>
+          </a>
+        </nav>
+        <footer class="sidebar__footer">
+          <a class="sidebar__button" data-route="profile.html" href="profile.html">
+            <span aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-3.99 0-7 2.02-7 4.5V20h14v-1.5c0-2.48-3.01-4.5-7-4.5Z"
+                />
+              </svg>
+            </span>
+            <span class="sr-only">Profil</span>
+          </a>
+        </footer>
+      </aside>
+
+      <main class="main-area">
+        <header class="top-bar">
+          <div class="top-bar__info">
+            <h1>Pengaturan Workspace</h1>
+            <p>
+              Atur preferensi tampilan dan sumber data. Simpan manual setelah mengubah opsi.
+            </p>
+          </div>
+        </header>
+
+        <section class="grid grid--detail">
+          <article class="card">
+            <header class="card__header">
+              <div>
+                <h2>Tema & Tampilan</h2>
+                <p class="muted">Sesuaikan tema agar nyaman dipakai kerja lama.</p>
+              </div>
+            </header>
+            <form class="notes-form" data-settings-form>
+              <label>
+                Mode Warna
+                <select class="notes-form__select" data-settings-theme>
+                  <option value="light">Terang</option>
+                  <option value="dark">Gelap</option>
+                  <option value="auto">Auto</option>
+                </select>
+              </label>
+              <label>
+                Bahasa
+                <select class="notes-form__select" data-settings-language>
+                  <option value="id">Indonesia</option>
+                  <option value="en">English</option>
+                </select>
+              </label>
+              <label class="checkbox-field">
+                <input type="checkbox" data-settings-refresh />
+                <span>Aktifkan auto refresh sensor</span>
+              </label>
+              <button class="primary-button" type="submit">Simpan Preferensi</button>
+              <p class="muted" data-settings-feedback role="status"></p>
+            </form>
+          </article>
+
+          <article class="card">
+            <header class="card__header">
+              <div>
+                <h2>Integrasi Sensor</h2>
+                <p class="muted">
+                  Update kredensial API atau jalur data manual. Pastikan data benar sebelum
+                  disimpan.
+                </p>
+              </div>
+            </header>
+            <ul class="device-list" data-integration-list></ul>
+            <p class="muted" data-integration-feedback role="status"></p>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./nav.js"></script>
+    <script type="module" src="./settings-page.js"></script>
+  </body>
+</html>
