@@ -14,6 +14,7 @@ const formatDate = (date) =>
     month: "long",
     year: "numeric",
   });
+
 const formatTime = (date) =>
   date.toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit" });
 
