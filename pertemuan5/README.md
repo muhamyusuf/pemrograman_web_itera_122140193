@@ -23,14 +23,70 @@ pertemuan5/
 ## Cara Menjalankan
 1. Buka terminal pada folder `pertemuan5`.
 2. Jalankan `python app.py`.
-3. Ikuti menu yang tersedia untuk mencoba fitur tambah item, pencarian, dan update status.
+3. Ikuti menu yang tersedia untuk mencoba fitur tambah item, pencarian, update status, dan keluar dari aplikasi.
 
-## Screenshot (isi sendiri)
-Tambahkan gambar hasil eksekusi CLI di bagian ini, misalnya dengan menempatkan file pada folder `pertemuan5/assets/` lalu merujuknya seperti:
+## Menu Program
+- `1. Tampilkan daftar item` &mdash; Menampilkan seluruh koleksi saat ini lengkap dengan tipe, kreator, tahun, dan status ketersediaan.
+- `2. Tambah buku baru` &mdash; Menginput detil buku (ID, judul, penulis, tahun, genre, halaman) lalu menambahkannya ke koleksi.
+- `3. Tambah majalah baru` &mdash; Mirip menu 2 namun untuk majalah dengan data penerbit dan nomor edisi.
+- `4. Cari item (judul/ID)` &mdash; Melakukan pencarian bebas berbasis substring judul atau kecocokan ID.
+- `5. Detail item berdasarkan ID` &mdash; Menampilkan informasi lengkap satu item termasuk deskripsi `describe()`.
+- `6. Ubah status ketersediaan` &mdash; Mengganti flag `available` menjadi tersedia/dipinjam untuk mempraktekkan encapsulation melalui property.
+- `7. Keluar` &mdash; Menutup aplikasi secara bersih.
 
-```md
-![Screenshot hasil program](assets/screenshot.png)
+## Screenshot Program
+![Menu utama](assets/ss-pt5-1.png)
+![Daftar koleksi](assets/ss-pt5-2.png)
+![Tambah buku](assets/ss-pt5-3.png)
+![Tambah majalah](assets/ss-pt5-4.png)
+![Pencarian item](assets/ss-pt5-5.png)
+![Detail item](assets/ss-pt5-6.png)
+![Ubah status dan keluar](assets/ss-pt5-7.png)
+
+## Diagram Class
+Gunakan diagram Mermaid berikut untuk menggambarkan relasi antar class:
+
+```mermaid
+classDiagram
+    class LibraryItem {
+        <<abstract>>
+        -_item_id: str
+        -_title: str
+        -_creator: str
+        -_year: int
+        -__available: bool
+        +item_id: str
+        +title: str
+        +creator: str
+        +year: int
+        +available: bool
+        +matches(keyword): bool
+        +item_type()*: str
+        +describe()*: str
+    }
+
+    class Book {
+        -_genre: str
+        -_pages: int
+        +item_type(): str
+        +describe(): str
+    }
+
+    class Magazine {
+        -_issue: str
+        +item_type(): str
+        +describe(): str
+    }
+
+    class Library {
+        -__items: List~LibraryItem~
+        +add_item(item)
+        +list_items()
+        +find_by_id(item_id)
+        +search(keyword)
+    }
+
+    LibraryItem <|-- Book
+    LibraryItem <|-- Magazine
+    Library "1" o-- "*" LibraryItem : mengelola
 ```
-
-## Diagram Class (opsional)
-Jika dibutuhkan, Anda dapat menambahkan diagram class sederhana untuk menggambarkan relasi antar class di atas.
