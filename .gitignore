@@ -1,0 +1,3 @@
+# hide pycache on every level directory
+**/__pycache__/
+**/*.py[cod]
