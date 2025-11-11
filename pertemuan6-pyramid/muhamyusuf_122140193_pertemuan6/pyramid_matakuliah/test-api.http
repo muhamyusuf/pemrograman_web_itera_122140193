@@ -1,0 +1,92 @@
+### Get All Matakuliah
+GET http://localhost:6543/api/matakuliah
+
+###
+
+### Get Detail Matakuliah by ID
+GET http://localhost:6543/api/matakuliah/1
+
+###
+
+### Add New Matakuliah
+POST http://localhost:6543/api/matakuliah
+Content-Type: application/json
+
+{
+  "kode_mk": "IF301",
+  "nama_mk": "Pemrograman Web",
+  "sks": 3,
+  "semester": 5
+}
+
+###
+
+### Update Matakuliah
+PUT http://localhost:6543/api/matakuliah/4
+Content-Type: application/json
+
+{
+  "sks": 4,
+  "semester": 6
+}
+
+###
+
+### Delete Matakuliah
+DELETE http://localhost:6543/api/matakuliah/4
+
+###
+
+### Test POST - Matakuliah Baru (Rekayasa Perangkat Lunak)
+POST http://localhost:6543/api/matakuliah
+Content-Type: application/json
+
+{
+  "kode_mk": "IF202",
+  "nama_mk": "Rekayasa Perangkat Lunak",
+  "sks": 3,
+  "semester": 4
+}
+
+###
+
+### Test POST - Matakuliah Baru (Jaringan Komputer)
+POST http://localhost:6543/api/matakuliah
+Content-Type: application/json
+
+{
+  "kode_mk": "IF203",
+  "nama_mk": "Jaringan Komputer",
+  "sks": 4,
+  "semester": 4
+}
+
+###
+
+### Test Validasi - POST tanpa field required
+POST http://localhost:6543/api/matakuliah
+Content-Type: application/json
+
+{
+  "kode_mk": "IF401"
+}
+
+###
+
+### Test Validasi - SKS bukan angka
+POST http://localhost:6543/api/matakuliah
+Content-Type: application/json
+
+{
+  "kode_mk": "IF401",
+  "nama_mk": "Test Mata Kuliah",
+  "sks": "tiga",
+  "semester": 4
+}
+
+###
+
+### Test GET - ID yang tidak ada
+GET http://localhost:6543/api/matakuliah/999
+
+###

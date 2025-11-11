@@ -1,0 +1,25 @@
+# ============================================
+# Development Requirements
+# ============================================
+# Install dengan: pip install -r requirements-dev.txt
+# File ini sudah include requirements.txt
+
+-r requirements.txt
+
+# Code Quality
+autopep8
+flake8
+pylint
+black
+
+# Testing
+pytest-watch
+pytest-xdist
+
+# Documentation
+Sphinx
+sphinx-rtd-theme
+
+# Debugging
+ipython
+ipdb

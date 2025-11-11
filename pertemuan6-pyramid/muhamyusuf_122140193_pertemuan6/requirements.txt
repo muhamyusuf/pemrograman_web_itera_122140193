@@ -1,0 +1,39 @@
+# ============================================
+# Pyramid Mata Kuliah - Requirements
+# ============================================
+# Framework utama untuk web application dengan database support
+# Install dengan: pip install -r requirements.txt
+
+# Core Pyramid Framework
+pyramid>=1.9
+plaster_pastedeploy
+
+# Template Engine
+pyramid_jinja2
+
+# Database & ORM
+SQLAlchemy>=1.4.0
+alembic
+transaction
+zope.sqlalchemy
+
+# Transaction Management
+pyramid_tm
+pyramid_retry
+
+# Web Server
+waitress
+
+# Development & Debug Tools
+pyramid_debugtoolbar
+
+# Testing Framework (Optional - untuk development)
+WebTest>=1.3.1
+pytest>=3.7.4
+pytest-cov
+
+# Additional useful packages
+# Uncomment jika diperlukan:
+# requests  # untuk HTTP requests
+# python-dotenv  # untuk environment variables
+# marshmallow  # untuk serialization/validation
