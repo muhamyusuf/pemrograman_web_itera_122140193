@@ -214,7 +214,7 @@ muhamyusuf_122140193_pertemuan6/
 - ✅ **Alembic 1.17** (Database Migration)
 - ✅ **PostgreSQL** (Database)
 - ✅ **psycopg2-binary 2.9** (PostgreSQL Driver)
-- ✅ **uv** (Package Manager) - Sesuai permintaan!
+- ✅ **uv** (Package Manager)
 
 ## Catatan Penting
 
